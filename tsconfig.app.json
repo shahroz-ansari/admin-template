@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    /** commented below lines... these are creating issue with redux types */
     // "composite": true,
     // "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",

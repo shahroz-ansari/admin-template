@@ -1,4 +1,5 @@
 import { combineSlices } from '@reduxjs/toolkit';
-import { apiSlice } from './slices/api.slice';
+import { appSlice } from './slices/app.slice';
+import { loginSlice } from './slices/login.slice';
 
-export const rootReducer = combineSlices(apiSlice);
+export const rootReducer = combineSlices(loginSlice, appSlice);
