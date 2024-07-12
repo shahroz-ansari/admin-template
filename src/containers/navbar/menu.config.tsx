@@ -2,6 +2,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { Permissions } from '../../constants/permissions.constant';
 import { SidebarMenu } from '../../models/app.model';
+import { dashboardPath, productsPath } from '../../routes/routes.constant';
 
 export const sidebarMenu: SidebarMenu[] = [
   {
@@ -10,8 +11,8 @@ export const sidebarMenu: SidebarMenu[] = [
       {
         title: 'Dashboard',
         icon: MenuIcon,
-        path: '/dashboard',
-        permissions: [],
+        path: dashboardPath,
+        permissions: [Permissions.None],
       },
     ],
   },
@@ -21,7 +22,7 @@ export const sidebarMenu: SidebarMenu[] = [
       {
         title: 'Products',
         icon: InboxIcon,
-        path: '/products',
+        path: productsPath,
         permissions: [Permissions.Product.list],
       },
     ],

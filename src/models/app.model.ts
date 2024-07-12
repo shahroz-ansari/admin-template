@@ -30,3 +30,7 @@ export interface SidebarMenu {
   container: string | null;
   items: MenuItem[];
 }
+
+export interface TokenDataType {
+  scopes: string[];
+}

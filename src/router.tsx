@@ -1,35 +1,32 @@
-import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import AppLayoutContainer from './containers/layout/app-layout.container';
+import AuthLayoutContainer from './containers/layout/auth-layout.container';
+import PermissionGuard from './containers/permissions/permission-guard.container';
+import privateRoutes from './routes/private-routes.config';
+import publicRoutes from './routes/public-routes.config';
 
-/** Public */
-const AuthLayoutContainer = lazy(
-  () => import('./containers/layout/auth-layout.container'),
-);
-const LoginPage = lazy(() => import('./pages/login.page'));
-
-/** Protected */
-const AppLayoutContainer = lazy(() => import('./containers/layout/app-layout.container'));
-const Dashboard = lazy(() => import('./pages/dashboard.page'));
-
-export const appRouter = createBrowserRouter([
+export const publicRouter = createBrowserRouter([
   {
-    path: 'auth',
+    path: '',
     element: <AuthLayoutContainer />,
-    children: [
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
-    ],
+    children: publicRoutes.map(({ path, Component }) => ({
+      path,
+      element: <Component />,
+    })),
   },
+]);
+
+export const privateRouter = createBrowserRouter([
   {
-    path: 'dashboard',
+    path: '',
     element: <AppLayoutContainer />,
-    children: [
-      {
-        path: '',
-        element: <Dashboard />,
-      },
-    ],
+    children: privateRoutes.map(({ path, Component, permission }) => ({
+      path,
+      element: (
+        <PermissionGuard permission={permission}>
+          <Component />
+        </PermissionGuard>
+      ),
+    })),
   },
 ]);

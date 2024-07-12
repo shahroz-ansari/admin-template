@@ -5,28 +5,42 @@ import { createAppSlice } from '../create-slice';
 
 interface SessionSlice {
   token?: string;
-  permissions?: unknown;
+  permissions?: string[];
+  activeMerchantId?: string;
+  activeStoreId?: string;
 }
 
 const initialState: SessionSlice = {
   token: localDataService.getAuthToken(),
 };
 
-export const appSlice = createAppSlice({
+export const sessionSlice = createAppSlice({
   name: 'session',
   initialState,
   reducers: (create) => ({
-    tokenUpdate: create.reducer((state, action: PayloadAction<string>) => {
-      localDataService.setAuthToken(action.payload);
+    tokenUpdate: create.reducer((state, action: PayloadAction<string | undefined>) => {
+      action.payload && localDataService.setAuthToken(action.payload);
       state.token = action.payload;
+    }),
+    permissionUpdate: create.reducer(
+      (state, action: PayloadAction<string[] | undefined>) => {
+        state.permissions = action.payload;
+      },
+    ),
+    mechantActiveSet: create.reducer((state, action: PayloadAction<string>) => {
+      state.activeMerchantId = action.payload;
+    }),
+    storeActiveSet: create.reducer((state, action: PayloadAction<string>) => {
+      state.activeStoreId = action.payload;
     }),
   }),
   extraReducers(builder) {
     builder.addCase(loginAPI.fulfilled, (_state, action) => {
       // TODO:: Check if this is working or not
-      appSlice.actions.tokenUpdate(action.payload?.token || '');
+      sessionSlice.actions.tokenUpdate(action.payload?.token || '');
     });
   },
 });
 
-export const {} = appSlice.actions;
+export const { tokenUpdate, permissionUpdate, mechantActiveSet, storeActiveSet } =
+  sessionSlice.actions;
