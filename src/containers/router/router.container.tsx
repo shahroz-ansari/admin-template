@@ -1,21 +1,12 @@
-import { Suspense } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { privateRouter, publicRouter } from '../../router';
-import { useAppSelector } from '../../store/store.hook';
+import { appRouter } from '../../router';
 import PermissionProvider from '../permissions/permission-provider.container';
 
-interface Props {}
-const RouterContainer: React.FC<Props> = () => {
-  const token = useAppSelector((state) => state.session.token);
-
-  return token ? (
+const RouterContainer: React.FC = () => {
+  return (
     <PermissionProvider>
-      <Suspense fallback={<>loading</>}>
-        <RouterProvider router={privateRouter} />
-      </Suspense>
+      <RouterProvider router={appRouter} fallbackElement={<h1>Loading</h1>} />
     </PermissionProvider>
-  ) : (
-    <RouterProvider router={publicRouter} />
   );
 };
 

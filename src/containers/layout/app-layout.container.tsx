@@ -1,5 +1,5 @@
 import { Box, Toolbar } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { ReactNode } from 'react';
 import {
   DesktopSidebarDrawer,
   MobileSidebarDrawer,
@@ -10,7 +10,11 @@ import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import Header from '../navbar/header.container';
 import SidebarContainer from '../navbar/sidebar.container';
 
-const AppLayoutContainer: React.FC = () => {
+interface Props {
+  children: ReactNode;
+}
+
+const AppLayoutContainer: React.FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
   const sidebarVisiblity = useAppSelector((state) => state.app.sidebarVisible);
 
@@ -41,7 +45,7 @@ const AppLayoutContainer: React.FC = () => {
         }}
       >
         <Toolbar sx={{ bgcolor: 'transparent' }} />
-        <Outlet />
+        {children}
       </Box>
     </Box>
   );

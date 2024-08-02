@@ -17,17 +17,17 @@ const PermissionProvider: React.FC<Props> = ({ children }) => {
   const permissions = useAppSelector((state) => state.session.permissions);
 
   useEffect(() => {
-    const { scopes } = decodeJWT(token!);
-    const permissions = createPermissionsFromScopes(scopes, {
-      merchantId: merchantId || Permissions.All,
-      storeId: storeId || Permissions.All,
-    });
-    dispatch(permissionUpdate(permissions));
+    if (token) {
+      const { scopes } = decodeJWT(token!);
+      const permissions = createPermissionsFromScopes(scopes, {
+        merchantId: merchantId || Permissions.All,
+        storeId: storeId || Permissions.All,
+      });
+      dispatch(permissionUpdate(permissions));
+    }
   }, [token]);
 
-  console.log('++', permissions);
-
-  return permissions ? children : null;
+  return !token || permissions ? children : null;
 };
 
 export default PermissionProvider;

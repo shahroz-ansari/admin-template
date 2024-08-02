@@ -1,2 +1,2 @@
-export const AppThemeOptionsKey = 'pine-app-theme-options';
-export const AppAuthTokenKey = 'pine-token';
+export const AppThemeOptionsKey = 'app-theme-options';
+export const AppAuthTokenKey = 'token';
