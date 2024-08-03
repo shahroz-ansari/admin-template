@@ -1,5 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { AppAuthTokenKey } from '../../constants/storage-keys.constant';
 import { localDataService } from '../../services/local-data/local-data.service';
+import { decodeJWT } from '../../utils/jwt.util';
 import { loginAPI } from '../apis/login.api';
 import { createAppSlice } from '../create-slice';
 
@@ -10,37 +12,68 @@ interface SessionSlice {
   activeStoreId?: string;
 }
 
+const token = localDataService.getAuthToken();
+const tokenData = token ? decodeJWT(token) : null;
+
 const initialState: SessionSlice = {
-  token: localDataService.getAuthToken(),
+  token,
+  activeMerchantId: tokenData?.orgId || '',
+  activeStoreId: tokenData?.storeIds?.[0] || '',
 };
 
 export const sessionSlice = createAppSlice({
   name: 'session',
   initialState,
   reducers: (create) => ({
-    tokenUpdate: create.reducer((state, action: PayloadAction<string | undefined>) => {
+    sessionToken: create.reducer((state, action: PayloadAction<string | undefined>) => {
       action.payload && localDataService.setAuthToken(action.payload);
       state.token = action.payload;
     }),
-    permissionUpdate: create.reducer(
+    sessionPermissions: create.reducer(
       (state, action: PayloadAction<string[] | undefined>) => {
         state.permissions = action.payload;
       },
     ),
-    mechantActiveSet: create.reducer((state, action: PayloadAction<string>) => {
+    sessionMerchant: create.reducer((state, action: PayloadAction<string>) => {
       state.activeMerchantId = action.payload;
     }),
-    storeActiveSet: create.reducer((state, action: PayloadAction<string>) => {
+    sessionStore: create.reducer((state, action: PayloadAction<string>) => {
       state.activeStoreId = action.payload;
+    }),
+    sessionLogout: create.reducer((state) => {
+      localDataService.clearStorage([AppAuthTokenKey]);
+
+      state.token = '';
+      state.permissions = [];
+      state.activeMerchantId = '';
+      state.activeStoreId = '';
     }),
   }),
   extraReducers(builder) {
     builder.addCase(loginAPI.fulfilled, (_state, action) => {
-      // TODO:: Check if this is working or not
-      sessionSlice.actions.tokenUpdate(action.payload?.token || '');
+      const { orgId, storeIds } = decodeJWT(action.payload?.token!);
+      sessionSlice.caseReducers.sessionToken(_state, {
+        ...action,
+        payload: action.payload?.token,
+      });
+      orgId &&
+        sessionSlice.caseReducers.sessionMerchant(_state, {
+          ...action,
+          payload: orgId,
+        });
+      storeIds &&
+        sessionSlice.caseReducers.sessionStore(_state, {
+          ...action,
+          payload: storeIds?.[0] || '',
+        });
     });
   },
 });
 
-export const { tokenUpdate, permissionUpdate, mechantActiveSet, storeActiveSet } =
-  sessionSlice.actions;
+export const {
+  sessionToken,
+  sessionPermissions,
+  sessionMerchant,
+  sessionStore,
+  sessionLogout,
+} = sessionSlice.actions;

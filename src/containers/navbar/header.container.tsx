@@ -1,15 +1,21 @@
+import { ReactNode } from 'react';
 import HeaderComponent from '../../components/navbar/header.component';
-import { sidebarVisiblityToggle } from '../../store/slices/app.slice';
+import { appSidebarVisiblity } from '../../store/slices/app.slice';
 import { useAppDispatch } from '../../store/store.hook';
 
-const Header: React.FC = () => {
+interface Props {
+  userMenu: ReactNode;
+}
+const Header: React.FC<Props> = ({ userMenu }) => {
   const dispatch = useAppDispatch();
 
   const handleSidebarToggle = () => {
-    dispatch(sidebarVisiblityToggle());
+    dispatch(appSidebarVisiblity());
   };
 
-  return <HeaderComponent handleSidebarToggle={handleSidebarToggle} />;
+  return (
+    <HeaderComponent userMenu={userMenu} handleSidebarToggle={handleSidebarToggle} />
+  );
 };
 
 export default Header;

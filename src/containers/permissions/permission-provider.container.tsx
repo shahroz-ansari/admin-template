@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Permissions } from '../../constants/permissions.constant';
-import { permissionUpdate } from '../../store/slices/session.slice';
+import { sessionPermissions } from '../../store/slices/session.slice';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import { decodeJWT } from '../../utils/jwt.util';
 import { createPermissionsFromScopes } from '../../utils/permission.util';
@@ -18,12 +18,12 @@ const PermissionProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      const { scopes } = decodeJWT(token!);
-      const permissions = createPermissionsFromScopes(scopes, {
+      const { feScopes } = decodeJWT(token!);
+      const permissions = createPermissionsFromScopes(feScopes, {
         merchantId: merchantId || Permissions.All,
         storeId: storeId || Permissions.All,
       });
-      dispatch(permissionUpdate(permissions));
+      dispatch(sessionPermissions(permissions));
     }
   }, [token]);
 

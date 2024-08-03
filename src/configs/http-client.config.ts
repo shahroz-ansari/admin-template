@@ -2,7 +2,7 @@ import type { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } from 
 import axios from 'axios';
 import { LoginAPIResponseType } from '../services/http/login.service';
 import { refreshTokenAPI } from '../store/apis/refresh-token.api';
-import { tokenUpdate } from '../store/slices/session.slice';
+import { sessionToken } from '../store/slices/session.slice';
 import { AppStore } from '../store/store';
 
 type RequestConfigOptionalKeys = Pick<
@@ -49,7 +49,7 @@ export function setupAxiosInterceptors(store: AppStore) {
           const token = (data?.payload as LoginAPIResponseType)?.token;
           if (token) {
             originalRequest.headers.common['Authorization'] = `Bearer ${token}`;
-            store.dispatch(tokenUpdate(token));
+            store.dispatch(sessionToken(token));
             return axiosInstance(originalRequest);
           }
         } catch (err) {

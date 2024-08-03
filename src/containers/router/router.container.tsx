@@ -1,11 +1,12 @@
 import { RouterProvider } from 'react-router-dom';
+import CircularLoader from '../../components/loader/circular-loader.component';
 import { appRouter } from '../../router';
 import PermissionProvider from '../permissions/permission-provider.container';
 
 const RouterContainer: React.FC = () => {
   return (
     <PermissionProvider>
-      <RouterProvider router={appRouter} fallbackElement={<h1>Loading</h1>} />
+      <RouterProvider router={appRouter} fallbackElement={<CircularLoader />} />
     </PermissionProvider>
   );
 };

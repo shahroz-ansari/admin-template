@@ -20,6 +20,9 @@ class LocalDataService {
   setAuthToken(token: string) {
     lStorage.setItem(AppAuthTokenKey, token);
   }
+  clearStorage(keys: string[]) {
+    keys.forEach((key) => localStorage.removeItem(key));
+  }
 }
 
 export const localDataService = new LocalDataService();

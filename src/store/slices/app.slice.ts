@@ -19,15 +19,15 @@ export const appSlice = createAppSlice({
   name: 'app',
   initialState,
   reducers: (create) => ({
-    themeChange: create.reducer((state, action: PayloadAction<ThemeTypes>) => {
+    appTheme: create.reducer((state, action: PayloadAction<ThemeTypes>) => {
       state.theme = action.payload;
     }),
-    themeOptionsUpdate: create.reducer(
+    appThemeOptions: create.reducer(
       (state, action: PayloadAction<CustomThemeOptions>) => {
         state.themeOptions = action.payload;
       },
     ),
-    sidebarVisiblityToggle: create.reducer(
+    appSidebarVisiblity: create.reducer(
       (state, action: PayloadAction<boolean | undefined>) => {
         state.sidebarVisible =
           action.payload !== undefined ? action.payload : !state.sidebarVisible;
@@ -36,5 +36,4 @@ export const appSlice = createAppSlice({
   }),
 });
 
-export const { themeChange, themeOptionsUpdate, sidebarVisiblityToggle } =
-  appSlice.actions;
+export const { appTheme, appThemeOptions, appSidebarVisiblity } = appSlice.actions;

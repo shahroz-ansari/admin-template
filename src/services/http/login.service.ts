@@ -3,13 +3,10 @@ import { LoginPayloadType } from '../../models/auth.model';
 
 export type LoginAPIRequestType = {
   data: LoginPayloadType;
-  headers: {
-    token: string;
-  };
 };
 
 export interface LoginAPIResponseType {
-  id: number;
+  id: string;
   username: string;
   email: string;
   firstName: string;

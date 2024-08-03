@@ -5,10 +5,11 @@ import {
   MobileSidebarDrawer,
 } from '../../components/navbar/sidebar-drawer.component';
 import { DrawerWidth } from '../../constants/app.constants';
-import { sidebarVisiblityToggle } from '../../store/slices/app.slice';
+import { appSidebarVisiblity } from '../../store/slices/app.slice';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import Header from '../navbar/header.container';
 import SidebarContainer from '../navbar/sidebar.container';
+import UserMenu from '../navbar/user-menu.container';
 
 interface Props {
   children: ReactNode;
@@ -19,12 +20,12 @@ const AppLayoutContainer: React.FC<Props> = ({ children }) => {
   const sidebarVisiblity = useAppSelector((state) => state.app.sidebarVisible);
 
   const handleSidebarToggle = () => {
-    dispatch(sidebarVisiblityToggle());
+    dispatch(appSidebarVisiblity());
   };
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <Header />
+      <Header userMenu={<UserMenu />} />
       <Box component="nav" sx={{ width: { md: DrawerWidth }, flexShrink: { md: 0 } }}>
         <MobileSidebarDrawer
           sidebarVisiblity={sidebarVisiblity}

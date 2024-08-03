@@ -32,5 +32,7 @@ export interface SidebarMenu {
 }
 
 export interface TokenDataType {
-  scopes: string[];
+  feScopes: string[];
+  orgId: string;
+  storeIds: [string];
 }

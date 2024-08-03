@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import CircularLoader from './components/loader/circular-loader.component';
 import AdminAppContainer from './containers/app/admin-app.container';
 import AuthLayoutContainer from './containers/layout/auth-layout.container';
 import PermissionGuard from './containers/permissions/permission-guard.container';
@@ -12,7 +14,11 @@ export const appRouter = createBrowserRouter([
     element: <AuthLayoutContainer />,
     children: publicRoutes.map(({ path, Component }) => ({
       path,
-      element: <Component />,
+      element: (
+        <Suspense fallback={<CircularLoader />}>
+          <Component />
+        </Suspense>
+      ),
     })),
   },
   {
@@ -22,7 +28,9 @@ export const appRouter = createBrowserRouter([
       path,
       element: (
         <PermissionGuard permission={permission}>
-          <Component />
+          <Suspense fallback={<CircularLoader />}>
+            <Component />
+          </Suspense>
         </PermissionGuard>
       ),
     })),
