@@ -1,0 +1,17 @@
+{
+  "name": "Login form",
+  "properties": {
+    "username": {
+      "name": "username",
+      "label": "Username",
+      "type": "text",
+      "value": ""
+    },
+    "password": {
+      "name": "password",
+      "label": "Password",
+      "type": "password",
+      "value": ""
+    }
+  }
+}

@@ -1,20 +1,24 @@
-import { Button } from '@mui/material';
+import { LoginPayloadType } from '../../models/auth.model';
 import { loginAPI, loginAPIKey } from '../../store/apis/login.api';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
+import FormProvider from '../form/form-provider.container';
+import loginConfig from './login.config.json';
+import LoginForm from './login.form';
 
 const LoginContainer: React.FC = () => {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.toast.data);
   const loginPending = useAppSelector((state) => state.api.pending[loginAPIKey]);
-  console.log(data);
-  const onLogin = () => dispatch(loginAPI({ username: '', password: '' }));
+  const onLoginSubmit = (data: LoginPayloadType) => {
+    dispatch(loginAPI(data));
+  };
 
   return (
     <div>
       <h1>Login Container</h1>
-      <Button variant="contained" onClick={onLogin} disabled={loginPending}>
-        Login
-      </Button>
+
+      <FormProvider onSubmit={onLoginSubmit} config={loginConfig}>
+        <LoginForm />
+      </FormProvider>
     </div>
   );
 };
