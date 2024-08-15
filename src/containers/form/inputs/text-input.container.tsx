@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import { TextFieldConfig } from '../../../models/form.model';
-import { parseFieldError } from '../../../utils/form.util';
+import { executeValidations, parseFieldError } from '../../../utils/form.util';
 
 interface Props {
   field: TextFieldConfig;
@@ -16,6 +16,13 @@ const FormTextField: React.FC<Props> = ({ field: fieldProps }) => {
     <Controller
       name={fieldProps.name}
       control={control}
+      {...(fieldProps.validate
+        ? {
+            rules: {
+              validate: (value, values) => executeValidations(fieldProps, value, values),
+            },
+          }
+        : null)}
       render={({ field }) => (
         <TextField
           {...field}

@@ -5,13 +5,25 @@
       "name": "username",
       "label": "Username",
       "type": "text",
-      "value": ""
+      "value": "",
+      "validate": [
+        {
+          "type": "required",
+          "message": "Username is required"
+        }
+      ]
     },
     "password": {
       "name": "password",
       "label": "Password",
       "type": "password",
-      "value": ""
+      "value": "",
+      "validate": [
+        {
+          "type": "required",
+          "message": "Password is required"
+        }
+      ]
     }
   }
 }
