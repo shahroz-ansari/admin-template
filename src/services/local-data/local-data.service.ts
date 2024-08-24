@@ -2,7 +2,7 @@ import {
   AppAuthTokenKey,
   AppThemeOptionsKey,
 } from '../../constants/storage-keys.constant';
-import { CustomThemeOptions } from '../../models/app.model';
+import type { CustomThemeOptions } from '../../models/app.model';
 import { lStorage } from '../../utils/browser-storage.util';
 
 class LocalDataService {

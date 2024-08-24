@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 import { GenericErrorMessage } from '../../constants/api-messages.constant';
-import { LoginPayloadType } from '../../models/auth.model';
+import type { LoginPayloadType } from '../../models/auth.model';
 import { loginService } from '../../services/http/login.service';
 
 export const loginAPIKey = 'api.login';

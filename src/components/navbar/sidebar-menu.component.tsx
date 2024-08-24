@@ -1,5 +1,5 @@
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { MenuItem } from '../../models/app.model';
+import type { MenuItem } from '../../models/app.model';
 
 interface Props {
   items: MenuItem[];

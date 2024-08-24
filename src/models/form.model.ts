@@ -1,6 +1,6 @@
-import { validations } from '../containers/form/validations';
+import type { validations } from '../containers/form/validations';
 
-export type FieldValue = string;
+export type FieldValue = string | boolean;
 export type FormValues = { [key: string]: FieldValue };
 
 type ValidationSchemaBase = {
@@ -33,7 +33,13 @@ export interface TextFieldConfig extends FieldBaseConfig {
   label: string;
 }
 
-export type FormFieldType = TextFieldConfig;
+export interface CheckboxFieldConfig extends FieldBaseConfig {
+  value: boolean;
+  label: string;
+}
+
+/** Add new input type here */
+export type FormFieldType = TextFieldConfig | CheckboxFieldConfig;
 
 export interface FormConfig {
   name: string;

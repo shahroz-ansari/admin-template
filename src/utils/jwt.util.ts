@@ -1,4 +1,4 @@
-import { TokenDataType } from '../models/app.model';
+import type { TokenDataType } from '../models/app.model';
 
 export const decodeJWT = (token: string) => {
   const [_, dataString] = token.split('.');

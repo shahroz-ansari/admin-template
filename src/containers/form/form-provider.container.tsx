@@ -1,6 +1,7 @@
-import { ReactNode, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { useMemo } from 'react';
 import { FormProvider as ReactHookFormProvider, useForm } from 'react-hook-form';
-import { FormConfig } from '../../models/form.model';
+import type { FormConfig } from '../../models/form.model';
 
 interface Props {
   children: ReactNode;

@@ -1,6 +1,6 @@
-import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
+import type { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import { validations } from '../containers/form/validations';
-import { FieldValue, FormFieldType, FormValues } from '../models/form.model';
+import type { FieldValue, FormFieldType, FormValues } from '../models/form.model';
 
 export function parseFieldError(
   error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>,

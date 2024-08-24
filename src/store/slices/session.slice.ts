@@ -1,4 +1,4 @@
-import { PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { AppAuthTokenKey } from '../../constants/storage-keys.constant';
 import { localDataService } from '../../services/local-data/local-data.service';
 import { decodeJWT } from '../../utils/jwt.util';

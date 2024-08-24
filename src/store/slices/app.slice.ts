@@ -1,5 +1,6 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import { CustomThemeOptions, ThemeTypes } from '../../models/app.model';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { CustomThemeOptions } from '../../models/app.model';
+import { ThemeTypes } from '../../models/app.model';
 import { localDataService } from '../../services/local-data/local-data.service';
 import { createAppSlice } from '../create-slice';
 

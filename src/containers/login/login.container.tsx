@@ -1,5 +1,5 @@
 import { Button, Stack } from '@mui/material';
-import { LoginPayloadType } from '../../models/auth.model';
+import type { LoginPayloadType } from '../../models/auth.model';
 import { loginAPI, loginAPIKey } from '../../store/apis/login.api';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import FormProvider from '../form/form-provider.container';

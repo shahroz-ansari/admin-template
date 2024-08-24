@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
-import { TextFieldConfig } from '../../../models/form.model';
+import type { TextFieldConfig } from '../../../models/form.model';
 import { executeValidations, parseFieldError } from '../../../utils/form.util';
 
 interface Props {

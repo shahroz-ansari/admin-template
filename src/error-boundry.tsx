@@ -1,5 +1,6 @@
 import { Alert, Box, Collapse, Paper, Typography } from '@mui/material';
-import React, { ErrorInfo, ReactNode } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
+import React from 'react';
 
 // Define the types for the props
 interface ErrorBoundaryProps {

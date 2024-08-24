@@ -1,4 +1,4 @@
-import { PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { loginAPI } from '../apis/login.api';
 import { createAppSlice } from '../create-slice';
 

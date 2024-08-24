@@ -1,6 +1,6 @@
 import { blue, green, grey } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
-import { CustomThemeOptions } from '../models/app.model';
+import type { CustomThemeOptions } from '../models/app.model';
 
 const defaultTheme = (theme?: CustomThemeOptions) =>
   createTheme({

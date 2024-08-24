@@ -1,9 +1,9 @@
 import type { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { LoginAPIResponseType } from '../services/http/login.service';
+import type { LoginAPIResponseType } from '../services/http/login.service';
 import { refreshTokenAPI } from '../store/apis/refresh-token.api';
 import { sessionToken } from '../store/slices/session.slice';
-import { AppStore } from '../store/store';
+import type { AppStore } from '../store/store';
 
 type RequestConfigOptionalKeys = Pick<
   AxiosRequestConfig,
