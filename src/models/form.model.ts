@@ -38,8 +38,29 @@ export interface CheckboxFieldConfig extends FieldBaseConfig {
   label: string;
 }
 
+export interface SelectFieldConfig extends FieldBaseConfig {
+  value: string | number;
+  label: string;
+  options: Array<{ value: number | string; label: string }>;
+}
+
+export type MultiSelectFieldOptionValueType = number | string;
+export type MultiSelectFieldOptionType = {
+  value: MultiSelectFieldOptionValueType;
+  label: string;
+};
+export interface MultiSelectFieldConfig extends FieldBaseConfig {
+  value: Array<string | number>;
+  label: string;
+  options: Array<MultiSelectFieldOptionType>;
+}
+
 /** Add new input type here */
-export type FormFieldType = TextFieldConfig | CheckboxFieldConfig;
+export type FormFieldType =
+  | TextFieldConfig
+  | CheckboxFieldConfig
+  | SelectFieldConfig
+  | MultiSelectFieldConfig;
 
 export interface FormConfig {
   name: string;

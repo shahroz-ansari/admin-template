@@ -32,8 +32,28 @@
       "validate": [
         {
           "type": "required",
-          "message": "Password is required"
+          "message": "Must be checked"
         }
+      ]
+    },
+    "gender": {
+      "name": "gender",
+      "label": "Gender",
+      "type": "gender",
+      "value": "",
+      "options": [
+        { "value": "male", "label": "Male" },
+        { "value": "female", "label": "Female" }
+      ]
+    },
+    "interest": {
+      "name": "interest",
+      "label": "Interests",
+      "type": "interest",
+      "value": [],
+      "options": [
+        { "value": "movie", "label": "Movie" },
+        { "value": "sports", "label": "Sports" }
       ]
     }
   }

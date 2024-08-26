@@ -5,12 +5,13 @@ import type { FormConfig } from '../../models/form.model';
 
 interface Props {
   children: ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSubmit: (data: any) => void;
   config: FormConfig;
 }
 
 interface DefaultValues {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const FormProvider: React.FC<Props> = ({ children, onSubmit, config }) => {
