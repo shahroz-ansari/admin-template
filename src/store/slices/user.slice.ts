@@ -1,5 +1,4 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { loginAPI } from '../apis/login.api';
 import { createAppSlice } from '../create-slice';
 
 interface UserInfo {
@@ -30,12 +29,6 @@ export const userSlice = createAppSlice({
       state.info = action.payload;
     }),
   }),
-  extraReducers(builder) {
-    builder.addCase(loginAPI.fulfilled, (_state, action) => {
-      if (action.payload) {
-        const { id, firstName, lastName, gender } = action.payload;
-        userSlice.actions.userSetInfo({ id, firstName, lastName, gender });
-      }
-    });
-  },
 });
+
+export const { userSetInfo } = userSlice.actions;

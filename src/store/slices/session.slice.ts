@@ -2,7 +2,6 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { AppAuthTokenKey } from '../../constants/storage-keys.constant';
 import { localDataService } from '../../services/local-data/local-data.service';
 import { decodeJWT } from '../../utils/jwt.util';
-import { loginAPI } from '../apis/login.api';
 import { createAppSlice } from '../create-slice';
 
 interface SessionSlice {
@@ -49,25 +48,6 @@ export const sessionSlice = createAppSlice({
       state.activeStoreId = '';
     }),
   }),
-  extraReducers(builder) {
-    builder.addCase(loginAPI.fulfilled, (_state, action) => {
-      const { orgId, storeIds } = decodeJWT(action.payload?.token!);
-      sessionSlice.caseReducers.sessionToken(_state, {
-        ...action,
-        payload: action.payload?.token,
-      });
-      orgId &&
-        sessionSlice.caseReducers.sessionMerchant(_state, {
-          ...action,
-          payload: orgId,
-        });
-      storeIds &&
-        sessionSlice.caseReducers.sessionStore(_state, {
-          ...action,
-          payload: storeIds?.[0] || '',
-        });
-    });
-  },
 });
 
 export const {

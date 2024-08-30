@@ -1,4 +1,5 @@
 import { loginAPI, loginAPIKey } from '../apis/login.api';
+import { productsAPI, productsAPIKey } from '../apis/products.api';
 import { refreshTokenAPI, refreshTokenAPIKey } from '../apis/refresh-token.api';
 import { createAppSlice } from '../create-slice';
 
@@ -23,6 +24,7 @@ export const apiSlice = createAppSlice({
   extraReducers(builder) {
     try {
       const apis = {
+        [productsAPIKey]: productsAPI,
         [loginAPIKey]: loginAPI,
         [refreshTokenAPIKey]: refreshTokenAPI,
       };
@@ -46,5 +48,3 @@ export const apiSlice = createAppSlice({
     }
   },
 });
-
-export const {} = apiSlice.actions;
