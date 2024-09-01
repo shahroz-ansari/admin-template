@@ -3,6 +3,7 @@ import { validations } from '../containers/form/validations';
 import type { FieldValue, FormFieldType, FormValues } from '../models/form.model';
 
 export function parseFieldError(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>,
 ) {
   if (typeof error === 'string') {

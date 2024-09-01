@@ -1,4 +1,5 @@
 import { http } from '../../configs/http-client.config';
+import type { APIPagination } from '../../models/api.model';
 import type { Product } from '../../models/product.model';
 
 export type ProductsAPIRequestType = {
@@ -6,11 +7,15 @@ export type ProductsAPIRequestType = {
     page?: number;
     limit?: number;
     keyword?: string;
+    sortBy?: string;
+    sortOrder?: string;
+    filters?: string;
   };
 };
 
 export interface ProductsAPIResponseType {
   data: Product[];
+  pagination?: APIPagination;
 }
 
 export async function productsService(request: ProductsAPIRequestType) {

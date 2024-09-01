@@ -1,22 +1,26 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { Product } from '../../models/product.model';
+import type { ProductsAPIResponseType } from '../../services/http/products.service';
 import { createAppSlice } from '../create-slice';
 
 interface ProductSliceInitialState {
-  products: Product[];
+  products: ProductsAPIResponseType;
 }
 
 const initialState: ProductSliceInitialState = {
-  products: [],
+  products: {
+    data: [],
+  },
 };
 
 export const productSlice = createAppSlice({
   name: 'products',
   initialState,
   reducers: (create) => ({
-    productsSet: create.reducer((state, action: PayloadAction<Product[]>) => {
-      state.products = action.payload;
-    }),
+    productsSet: create.reducer(
+      (state, action: PayloadAction<ProductsAPIResponseType>) => {
+        state.products = action.payload;
+      },
+    ),
   }),
 });
 

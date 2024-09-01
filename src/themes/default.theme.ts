@@ -12,6 +12,20 @@ const defaultTheme = (theme?: CustomThemeOptions) =>
           },
         },
       },
+      MuiButton: {
+        variants: [
+          {
+            props: { variant: 'custom-bg-primary' },
+            style: {
+              backgroundColor: `${theme?.background?.header || blue[700]}12`,
+              color: theme?.background?.header || blue[700],
+              '&:hover': {
+                backgroundColor: `${theme?.background?.header || blue[700]}24`,
+              },
+            },
+          },
+        ],
+      },
     },
     palette: {
       background: {
@@ -27,3 +41,9 @@ const defaultTheme = (theme?: CustomThemeOptions) =>
   });
 
 export default defaultTheme;
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    'custom-bg-primary': true;
+  }
+}
