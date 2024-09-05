@@ -2,18 +2,11 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { Button, Fade, MenuItem, Paper, Popper, Stack, TextField } from '@mui/material';
 import type { ChangeEvent, MouseEvent } from 'react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { TableContext } from '../table.context';
 
-interface Props {
-  filters?: {
-    label: string;
-    name: string;
-    options: { label: string; value: string }[];
-  }[];
-  onFilterSubmit?: (filters: { [name: string]: string }) => void;
-}
-
-const TableFilterComponent: React.FC<Props> = ({ filters, onFilterSubmit }) => {
+const TableFilterComponent: React.FC = () => {
+  const { filters, onFilterSubmit } = useContext(TableContext);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const onFilterClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
