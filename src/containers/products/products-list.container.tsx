@@ -28,8 +28,8 @@ const ProductsListContainer: React.FC = () => {
     <>
       <TableContainer
         loading={productsLoading}
-        data={products}
-        showSearch={false}
+        rows={products}
+        showSearch={true}
         preSelect={preSelect}
         apiAction={apiAction}
         rowAction={rowAction}

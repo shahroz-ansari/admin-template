@@ -23,7 +23,7 @@ interface Props<T extends GridRowsProp> {
   loading?: boolean;
   apiAction: ApiAction;
   rowAction?: RowAction;
-  data: {
+  rows: {
     data: T;
     pagination?: APIPagination;
   };
@@ -38,7 +38,7 @@ const TableContainer = <T extends GridRowsProp>({
   loading,
   apiAction,
   rowAction,
-  data,
+  rows,
   config,
   showSearch,
   preSelect,
@@ -113,7 +113,7 @@ const TableContainer = <T extends GridRowsProp>({
       <Box sx={{ height: 400, width: '100%' }}>
         <DataGrid
           loading={Boolean(loading)}
-          rows={data.data}
+          rows={rows.data}
           columns={columns}
           /** Styling */
           sx={{
@@ -135,7 +135,7 @@ const TableContainer = <T extends GridRowsProp>({
           disableRowSelectionOnClick
           /** Pagination */
           paginationMode="server"
-          rowCount={data.pagination?.total || 0}
+          rowCount={rows.pagination?.total || 0}
           paginationModel={paginationModel}
           onPaginationModelChange={setPaginationModel}
           /** Column Sorting */
