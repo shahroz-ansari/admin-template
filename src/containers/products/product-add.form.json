@@ -11,12 +11,18 @@
           "type": "required",
           "message": "Product name is required"
         }
-      ]
+      ],
+      "component": {
+        "key": "textbox"
+      }
     },
     "active": {
       "name": "active",
       "label": "Active product",
-      "value": false
+      "value": false,
+      "component": {
+        "key": "checkbox"
+      }
     },
     "category": {
       "name": "category",
@@ -27,7 +33,10 @@
         { "value": "B", "label": "B" },
         { "value": "C", "label": "C" },
         { "value": "D", "label": "D" }
-      ]
+      ],
+      "component": {
+        "key": "selectbox"
+      }
     },
     "interest": {
       "name": "interest",
@@ -39,7 +48,10 @@
         { "value": "sports", "label": "Sports" },
         { "value": "X1", "label": "X1" },
         { "value": "Y1", "label": "Y1" }
-      ]
+      ],
+      "component": {
+        "key": "multiselectbox"
+      }
     }
   }
 }

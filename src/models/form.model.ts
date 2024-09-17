@@ -1,4 +1,4 @@
-import type { validations } from '../applications/form/validations';
+import type { validations } from '../applications/form/validations.form';
 
 export type FieldValue = string | boolean;
 export type FormValues = { [key: string]: FieldValue };
@@ -25,6 +25,9 @@ export type ValidationFunctionsMap = { [key: string]: ValidationsFunction };
 type FieldBaseConfig = {
   name: string;
   validate?: ValidationSchemaType;
+  component: {
+    key: string;
+  };
 };
 
 export interface TextFieldConfig extends FieldBaseConfig {

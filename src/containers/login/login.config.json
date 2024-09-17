@@ -11,7 +11,10 @@
           "type": "required",
           "message": "Username is required"
         }
-      ]
+      ],
+      "component": {
+        "key": "textbox"
+      }
     },
     "password": {
       "name": "password",
@@ -23,7 +26,10 @@
           "type": "required",
           "message": "Password is required"
         }
-      ]
+      ],
+      "component": {
+        "key": "textbox"
+      }
     },
     "keepLoggedIn": {
       "name": "keepLoggedIn",
@@ -34,7 +40,10 @@
           "type": "required",
           "message": "Must be checked"
         }
-      ]
+      ],
+      "component": {
+        "key": "checkbox"
+      }
     },
     "gender": {
       "name": "gender",
@@ -44,7 +53,10 @@
       "options": [
         { "value": "male", "label": "Male" },
         { "value": "female", "label": "Female" }
-      ]
+      ],
+      "component": {
+        "key": "selectbox"
+      }
     },
     "interest": {
       "name": "interest",
@@ -54,7 +66,10 @@
       "options": [
         { "value": "movie", "label": "Movie" },
         { "value": "sports", "label": "Sports" }
-      ]
+      ],
+      "component": {
+        "key": "multiselectbox"
+      }
     }
   }
 }
