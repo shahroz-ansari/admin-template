@@ -1,10 +1,6 @@
-/* eslint-disable react-refresh/only-export-components */
 import { lazy } from 'react';
 import { Permissions } from '../constants/permissions.constant';
-import { dashboardPath, productsPath } from './routes.constant';
-
-const DashboardPage = lazy(() => import('../pages/dashboard.page'));
-const ProductPage = lazy(() => import('../pages/products-list.page'));
+import { dashboardPath, productsAddPath, productsPath } from './routes.constant';
 
 const privateRoutes: {
   path: string;
@@ -13,12 +9,17 @@ const privateRoutes: {
 }[] = [
   {
     path: dashboardPath,
-    Component: DashboardPage,
+    Component: lazy(() => import('../pages/dashboard.page')),
     permission: [Permissions.None],
   },
   {
     path: productsPath,
-    Component: ProductPage,
+    Component: lazy(() => import('../pages/products-list.page')),
+    permission: [Permissions.Product.list],
+  },
+  {
+    path: productsAddPath,
+    Component: lazy(() => import('../pages/product-add.page')),
     permission: [Permissions.Product.list],
   },
 ];

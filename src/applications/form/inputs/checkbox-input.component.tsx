@@ -1,7 +1,8 @@
 import { Checkbox, FormControl, FormControlLabel, FormHelperText } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import type { CheckboxFieldConfig } from '../../../models/form.model';
-import { executeValidations, parseFieldError } from '../../../utils/form.util';
+import { parseFieldError } from './../utilities/rhf-error-parser.util';
+import { executeValidations } from './../utilities/validate.util';
 
 interface Props {
   field: CheckboxFieldConfig;
@@ -16,6 +17,7 @@ const FormCheckboxField: React.FC<Props> = ({ field: fieldProps }) => {
     <Controller
       name={fieldProps.name}
       control={control}
+      defaultValue={fieldProps.value}
       {...(fieldProps.validate
         ? {
             rules: {
@@ -29,7 +31,7 @@ const FormCheckboxField: React.FC<Props> = ({ field: fieldProps }) => {
             control={
               <Checkbox
                 {...field}
-                checked={field.value}
+                checked={Boolean(field.value)}
                 onChange={(e) => field.onChange(e.target.checked)}
               />
             }

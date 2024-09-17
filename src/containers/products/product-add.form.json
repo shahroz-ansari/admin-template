@@ -1,0 +1,45 @@
+{
+  "name": "Product form",
+  "properties": {
+    "product_name": {
+      "name": "product_name",
+      "label": "Product Name",
+      "type": "text",
+      "value": "",
+      "validate": [
+        {
+          "type": "required",
+          "message": "Product name is required"
+        }
+      ]
+    },
+    "active": {
+      "name": "active",
+      "label": "Active product",
+      "value": false
+    },
+    "category": {
+      "name": "category",
+      "label": "Gender",
+      "value": "",
+      "options": [
+        { "value": "A", "label": "A" },
+        { "value": "B", "label": "B" },
+        { "value": "C", "label": "C" },
+        { "value": "D", "label": "D" }
+      ]
+    },
+    "interest": {
+      "name": "interest",
+      "label": "Interests",
+      "type": "interest",
+      "value": [],
+      "options": [
+        { "value": "movie", "label": "Movie" },
+        { "value": "sports", "label": "Sports" },
+        { "value": "X1", "label": "X1" },
+        { "value": "Y1", "label": "Y1" }
+      ]
+    }
+  }
+}

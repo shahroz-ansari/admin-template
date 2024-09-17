@@ -1,8 +1,8 @@
 import { Button, Stack } from '@mui/material';
+import FormInitializer from '../../applications/form/initializer.form';
 import type { LoginPayloadType } from '../../models/auth.model';
 import { loginAPI, loginAPIKey } from '../../store/apis/login.api';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
-import FormProvider from '../form/form-provider.container';
 import loginConfig from './login.config.json';
 import LoginForm from './login.form';
 
@@ -16,14 +16,14 @@ const LoginContainer: React.FC = () => {
   return (
     <div>
       <h1>Login Container</h1>
-      <FormProvider onSubmit={onLoginSubmit} config={loginConfig}>
+      <FormInitializer onSubmit={onLoginSubmit}>
         <Stack gap={3}>
           <LoginForm config={loginConfig} />
           <Button variant="contained" type="submit" disabled={loginPending}>
             Login
           </Button>
         </Stack>
-      </FormProvider>
+      </FormInitializer>
     </div>
   );
 };

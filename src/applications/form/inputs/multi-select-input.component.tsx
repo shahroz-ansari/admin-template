@@ -4,7 +4,8 @@ import type {
   MultiSelectFieldConfig,
   MultiSelectFieldOptionValueType,
 } from '../../../models/form.model';
-import { executeValidations, parseFieldError } from '../../../utils/form.util';
+import { parseFieldError } from './../utilities/rhf-error-parser.util';
+import { executeValidations } from './../utilities/validate.util';
 
 interface Props {
   field: MultiSelectFieldConfig;
@@ -19,6 +20,7 @@ const FormMultiSelectField: React.FC<Props> = ({ field: fieldProps }) => {
     <Controller
       name={fieldProps.name}
       control={control}
+      defaultValue={fieldProps.value}
       {...(fieldProps.validate
         ? {
             rules: {
@@ -29,6 +31,7 @@ const FormMultiSelectField: React.FC<Props> = ({ field: fieldProps }) => {
       render={({ field }) => (
         <TextField
           {...field}
+          value={field.value || []}
           label={fieldProps.label}
           select
           SelectProps={{
@@ -36,7 +39,7 @@ const FormMultiSelectField: React.FC<Props> = ({ field: fieldProps }) => {
             renderValue: (selected) =>
               fieldProps.options
                 .map((option) =>
-                  (selected as MultiSelectFieldOptionValueType[]).includes(option.value)
+                  (selected as MultiSelectFieldOptionValueType[])?.includes(option.value)
                     ? option.label
                     : '',
                 )
@@ -47,8 +50,8 @@ const FormMultiSelectField: React.FC<Props> = ({ field: fieldProps }) => {
           helperText={parseFieldError(errors[fieldProps.name])}
         >
           {fieldProps.options.map((option) => (
-            <MenuItem value={option.value}>
-              <Checkbox checked={field.value.indexOf(option.value) > -1} />
+            <MenuItem value={option.value} key={option.value}>
+              <Checkbox checked={field.value?.indexOf(option.value) > -1} />
               <ListItemText primary={option.label} />
             </MenuItem>
           ))}

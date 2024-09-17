@@ -1,7 +1,8 @@
 import { MenuItem, TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import type { SelectFieldConfig } from '../../../models/form.model';
-import { executeValidations, parseFieldError } from '../../../utils/form.util';
+import { parseFieldError } from './../utilities/rhf-error-parser.util';
+import { executeValidations } from './../utilities/validate.util';
 
 interface Props {
   field: SelectFieldConfig;
@@ -16,6 +17,7 @@ const FormSelectField: React.FC<Props> = ({ field: fieldProps }) => {
     <Controller
       name={fieldProps.name}
       control={control}
+      defaultValue={fieldProps.value}
       {...(fieldProps.validate
         ? {
             rules: {
@@ -35,7 +37,9 @@ const FormSelectField: React.FC<Props> = ({ field: fieldProps }) => {
             <em>None</em>
           </MenuItem>
           {fieldProps.options.map((option) => (
-            <MenuItem value={option.value}>{option.label}</MenuItem>
+            <MenuItem value={option.value} key={option.value}>
+              {option.label}
+            </MenuItem>
           ))}
         </TextField>
       )}

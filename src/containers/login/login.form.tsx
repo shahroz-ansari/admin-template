@@ -1,9 +1,9 @@
 import { Stack } from '@mui/material';
+import FormCheckboxField from '../../applications/form/inputs/checkbox-input.component';
+import FormMultiSelectField from '../../applications/form/inputs/multi-select-input.component';
+import FormSelectField from '../../applications/form/inputs/select-input.component';
+import FormTextField from '../../applications/form/inputs/text-input.component';
 import type { FormConfig } from '../../models/form.model';
-import FormCheckboxField from '../form/inputs/checkbox-input.container';
-import FormMultiSelectField from '../form/inputs/multi-select-input.container';
-import FormSelectField from '../form/inputs/select-input.container';
-import FormTextField from '../form/inputs/text-input.container';
 import type loginConfig from './login.config.json';
 
 type LoginPropertiesType = typeof loginConfig.properties;

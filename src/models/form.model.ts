@@ -1,4 +1,4 @@
-import type { validations } from '../containers/form/validations';
+import type { validations } from '../applications/form/validations';
 
 export type FieldValue = string | boolean;
 export type FormValues = { [key: string]: FieldValue };

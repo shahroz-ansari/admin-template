@@ -22,6 +22,7 @@ export interface CustomThemeOptions {
 
 export interface MenuItem {
   title: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & { muiName: string };
   path: string;
   permissions: string[];

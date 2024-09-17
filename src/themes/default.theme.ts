@@ -5,6 +5,11 @@ import type { CustomThemeOptions } from '../models/app.model';
 const defaultTheme = (theme?: CustomThemeOptions) =>
   createTheme({
     components: {
+      MuiTextField: {
+        defaultProps: {
+          size: 'small',
+        },
+      },
       MuiToolbar: {
         styleOverrides: {
           root: {
