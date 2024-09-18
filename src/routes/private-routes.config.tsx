@@ -1,6 +1,11 @@
 import { lazy } from 'react';
 import { Permissions } from '../constants/permissions.constant';
-import { dashboardPath, productsAddPath, productsPath } from './routes.constant';
+import {
+  dashboardPath,
+  productsAddPath,
+  productsEditPath,
+  productsPath,
+} from './routes.constant';
 
 const privateRoutes: {
   path: string;
@@ -20,6 +25,11 @@ const privateRoutes: {
   {
     path: productsAddPath,
     Component: lazy(() => import('../pages/product-add.page')),
+    permission: [Permissions.Product.list],
+  },
+  {
+    path: productsEditPath,
+    Component: lazy(() => import('../pages/product-edit.page')),
     permission: [Permissions.Product.list],
   },
 ];
