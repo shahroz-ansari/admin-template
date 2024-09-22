@@ -2,7 +2,7 @@ import { Delete, Edit } from '@mui/icons-material';
 import { IconButton, Stack } from '@mui/material';
 import type { GridRenderCellParams } from '@mui/x-data-grid';
 import { useContext } from 'react';
-import { RowActionType } from '../../../models/table.model';
+import { RowActionType } from '../../../applications/table/table.model';
 import { TableContext } from '../table.context';
 
 const ActionColumnComponent: React.FC<GridRenderCellParams> = ({ id }) => {

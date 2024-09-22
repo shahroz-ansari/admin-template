@@ -5,8 +5,8 @@ import {
   MobileSidebarDrawer,
 } from '../../components/navbar/sidebar-drawer.component';
 import { DrawerWidth } from '../../constants/app.constants';
-import { appSidebarVisiblity } from '../../store/slices/app.slice';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
+import { appSidebarVisiblity } from '../app/app.slice';
 import Header from '../navbar/header.container';
 import SidebarContainer from '../navbar/sidebar.container';
 import UserMenu from '../navbar/user-menu.container';

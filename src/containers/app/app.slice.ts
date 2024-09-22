@@ -1,8 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { CustomThemeOptions } from '../../models/app.model';
-import { ThemeTypes } from '../../models/app.model';
 import { localDataService } from '../../services/local-data/local-data.service';
-import { createAppSlice } from '../create-slice';
+import { createAppSlice } from '../../store/create-slice';
+import type { CustomThemeOptions } from './app.model';
+import { ThemeTypes } from './app.model';
 
 interface AppSlice {
   theme: ThemeTypes;

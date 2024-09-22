@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import HeaderComponent from '../../components/navbar/header.component';
-import { appSidebarVisiblity } from '../../store/slices/app.slice';
 import { useAppDispatch } from '../../store/store.hook';
+import { appSidebarVisiblity } from '../app/app.slice';
 
 interface Props {
   userMenu: ReactNode;

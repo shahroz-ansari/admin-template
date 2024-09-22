@@ -1,4 +1,4 @@
-import type { validations } from '../applications/form/validations.form';
+import type { validations } from './validations.form';
 
 export type FieldValue = string | boolean;
 export type FormValues = { [key: string]: FieldValue };

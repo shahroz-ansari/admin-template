@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Permissions } from '../../constants/permissions.constant';
+import { useAppDispatch, useAppSelector } from '../../store/store.hook';
+import { decodeJWT } from '../../utils/jwt.util';
+import { createPermissionsFromScopes } from '../../utils/permission.util';
 import {
   sessionMerchant,
   sessionPermissions,
   sessionStore,
-} from '../../store/slices/session.slice';
-import { useAppDispatch, useAppSelector } from '../../store/store.hook';
-import { decodeJWT } from '../../utils/jwt.util';
-import { createPermissionsFromScopes } from '../../utils/permission.util';
+} from '../session/session.slice';
 
 interface Props {
   children: React.ReactNode;

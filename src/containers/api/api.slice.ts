@@ -1,7 +1,7 @@
-import { loginAPI, loginAPIKey } from '../apis/login.api';
-import { productsAPI, productsAPIKey } from '../apis/products.api';
-import { refreshTokenAPI, refreshTokenAPIKey } from '../apis/refresh-token.api';
-import { createAppSlice } from '../create-slice';
+import { createAppSlice } from '../../store/create-slice';
+import { loginAPI, loginAPIKey } from '../login/api/login.api';
+import { refreshTokenAPI, refreshTokenAPIKey } from '../login/api/refresh-token.api';
+import { productsAPI, productsAPIKey } from '../products/api/products.api';
 
 interface APISlice {
   errors: {

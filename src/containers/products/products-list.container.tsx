@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from 'react';
-import type { RowAction } from '../../models/table.model';
+import type { RowAction } from '../../applications/table/table.model';
 import type { ProductsAPIRequestType } from '../../services/http/products.service';
-import { productsAPI, productsAPIKey } from '../../store/apis/products.api';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import TableContainer from '../table/table.container';
+import { productsAPI, productsAPIKey } from './api/products.api';
 import ProductListConfig from './product-list.config';
 
 const ProductsListContainer: React.FC = () => {

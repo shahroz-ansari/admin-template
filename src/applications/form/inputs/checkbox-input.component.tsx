@@ -1,6 +1,6 @@
 import { Checkbox, FormControl, FormControlLabel, FormHelperText } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { CheckboxFieldConfig } from '../../../models/form.model';
+import type { CheckboxFieldConfig } from '../form.model';
 import { parseFieldError } from './../utilities/rhf-error-parser.util';
 import { executeValidations } from './../utilities/validate.util';
 

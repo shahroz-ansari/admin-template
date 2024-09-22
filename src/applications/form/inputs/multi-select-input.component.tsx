@@ -3,7 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import type {
   MultiSelectFieldConfig,
   MultiSelectFieldOptionValueType,
-} from '../../../models/form.model';
+} from '../form.model';
 import { parseFieldError } from './../utilities/rhf-error-parser.util';
 import { executeValidations } from './../utilities/validate.util';
 

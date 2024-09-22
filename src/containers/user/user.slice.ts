@@ -1,5 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { createAppSlice } from '../create-slice';
+import { createAppSlice } from '../../store/create-slice';
 
 interface UserInfo {
   id: string;

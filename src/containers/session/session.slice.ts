@@ -1,8 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { AppAuthTokenKey } from '../../constants/storage-keys.constant';
 import { localDataService } from '../../services/local-data/local-data.service';
+import { createAppSlice } from '../../store/create-slice';
 import { decodeJWT } from '../../utils/jwt.util';
-import { createAppSlice } from '../create-slice';
 
 interface SessionSlice {
   token?: string;

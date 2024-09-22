@@ -1,4 +1,4 @@
-import type { ValidationFunctionsMap } from '../../models/form.model';
+import type { ValidationFunctionsMap } from './form.model';
 
 export const validations: ValidationFunctionsMap = {
   required: async (value, options) => {

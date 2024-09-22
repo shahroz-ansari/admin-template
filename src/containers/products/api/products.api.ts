@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { AxiosError } from 'axios';
-import type { ProductsAPIResponseType } from '../../services/http/products.service';
+import type { ProductsAPIResponseType } from '../../../services/http/products.service';
 import {
   productsService,
   type ProductsAPIRequestType,
-} from '../../services/http/products.service';
-import { productsSet } from '../slices/products.slice';
-import { toastError } from '../slices/toast.slice';
+} from '../../../services/http/products.service';
+import { toastError } from '../../toasts/toast.slice';
+import { productsSet } from '../products.slice';
 
 export const productsAPIKey = 'api.products';
 

@@ -1,8 +1,8 @@
 import { Button, Stack } from '@mui/material';
 import FormInitializer from '../../applications/form/initializer.form';
-import type { LoginPayloadType } from '../../models/auth.model';
-import { loginAPI, loginAPIKey } from '../../store/apis/login.api';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
+import { loginAPI, loginAPIKey } from './api/login.api';
+import type { LoginPayloadType } from './auth.model';
 import loginConfig from './login.config.json';
 import LoginForm from './login.form';
 

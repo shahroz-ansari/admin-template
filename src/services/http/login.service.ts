@@ -1,5 +1,5 @@
 import { http } from '../../configs/http-client.config';
-import type { LoginPayloadType } from '../../models/auth.model';
+import type { LoginPayloadType } from '../../containers/login/auth.model';
 
 export type LoginAPIRequestType = {
   data: LoginPayloadType;

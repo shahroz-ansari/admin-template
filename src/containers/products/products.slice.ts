@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { ProductsAPIResponseType } from '../../services/http/products.service';
-import { createAppSlice } from '../create-slice';
+import { createAppSlice } from '../../store/create-slice';
 
 interface ProductSliceInitialState {
   products: ProductsAPIResponseType;

@@ -1,6 +1,6 @@
 import { http } from '../../configs/http-client.config';
-import type { APIPagination } from '../../models/api.model';
-import type { Product } from '../../models/product.model';
+import type { APIPagination } from '../../containers/api/api.model';
+import type { Product } from '../../containers/products/product.model';
 
 export type ProductsAPIRequestType = {
   params: {

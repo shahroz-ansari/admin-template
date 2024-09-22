@@ -1,6 +1,6 @@
 import { MenuItem, TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { SelectFieldConfig } from '../../../models/form.model';
+import type { SelectFieldConfig } from '../form.model';
 import { parseFieldError } from './../utilities/rhf-error-parser.util';
 import { executeValidations } from './../utilities/validate.util';
 

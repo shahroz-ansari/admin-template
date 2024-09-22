@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { AxiosError } from 'axios';
-import type { LoginPayloadType } from '../../models/auth.model';
-import type { LoginAPIResponseType } from '../../services/http/login.service';
-import { loginService } from '../../services/http/login.service';
-import { sessionToken } from '../slices/session.slice';
-import { toastError } from '../slices/toast.slice';
-import { userSetInfo } from '../slices/user.slice';
+import type { LoginAPIResponseType } from '../../../services/http/login.service';
+import { loginService } from '../../../services/http/login.service';
+import { sessionToken } from '../../session/session.slice';
+import { toastError } from '../../toasts/toast.slice';
+import { userSetInfo } from '../../user/user.slice';
+import type { LoginPayloadType } from '../auth.model';
 
 export const loginAPIKey = 'api.login';
 

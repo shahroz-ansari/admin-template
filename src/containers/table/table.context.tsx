@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { TableContextValue } from '../../models/table.model';
+import type { TableContextValue } from '../../applications/table/table.model';
 
 export const TableContext = createContext<TableContextValue>({
   rowSelectionModel: [],

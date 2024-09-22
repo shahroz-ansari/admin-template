@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
 import { FormComponent } from '../../applications/form/component.form';
-import type { FormConfig } from '../../models/form.model';
+import type { FormConfig } from '../../applications/form/form.model';
 import type loginConfig from './login.config.json';
 
 type LoginPropertiesType = typeof loginConfig.properties;

@@ -19,17 +19,17 @@ const privateRoutes: {
   },
   {
     path: productsPath,
-    Component: lazy(() => import('../pages/products-list.page')),
+    Component: lazy(() => import('../pages/products/products-list.page')),
     permission: [Permissions.Product.list],
   },
   {
     path: productsAddPath,
-    Component: lazy(() => import('../pages/product-add.page')),
+    Component: lazy(() => import('../pages/products/product-add.page')),
     permission: [Permissions.Product.list],
   },
   {
     path: productsEditPath,
-    Component: lazy(() => import('../pages/product-edit.page')),
+    Component: lazy(() => import('../pages/products/product-edit.page')),
     permission: [Permissions.Product.list],
   },
 ];

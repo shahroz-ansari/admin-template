@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
-import { refreshTokenService } from '../../services/http/refresh-token.service';
+import { refreshTokenService } from '../../../services/http/refresh-token.service';
 
 export const refreshTokenAPIKey = 'api.refresh-token';
 export const refreshTokenAPI = createAsyncThunk(

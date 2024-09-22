@@ -1,4 +1,4 @@
-import type { FieldValue, FormFieldType, FormValues } from '../../../models/form.model';
+import type { FieldValue, FormFieldType, FormValues } from '../form.model';
 import { validations } from '../validations.form';
 
 // TODO:: Fix type import from outside of form

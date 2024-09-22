@@ -1,4 +1,4 @@
-import type { FormFieldType } from '../../models/form.model';
+import type { FormFieldType } from './form.model';
 import formInputMap from './input-map.form';
 
 interface Props {

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import UserMenuComponent from '../../components/navbar/user-menu.component';
-import { sessionLogout } from '../../store/slices/session.slice';
+import { sessionLogout } from '../session/session.slice';
 
 const UserMenu: React.FC = () => {
   const dispatch = useDispatch();
