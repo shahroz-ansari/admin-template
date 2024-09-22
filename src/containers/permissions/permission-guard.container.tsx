@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import usePermission from '../../hooks/permission.hook';
+import usePermission from './permission.hook';
 
 interface Props {
   permission: string[];

@@ -1,8 +1,8 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { Permissions } from '../../constants/permissions.constant';
-import { dashboardPath, productsPath } from '../../routes/routes.constant';
-import type { SidebarMenu } from '../app/app.model';
+import type { SidebarMenu } from '../../app/app.model';
+import { Permissions } from '../../permissions/permissions.constant';
+import { dashboardPath, productsPath } from '../../router/routes.constant';
 
 export const sidebarMenu: SidebarMenu[] = [
   {

@@ -7,7 +7,7 @@ const publicRoutes: {
 }[] = [
   {
     path: loginPath,
-    Component: lazy(() => import('../pages/login.page')),
+    Component: lazy(() => import('../../pages/login.page')),
   },
 ];
 

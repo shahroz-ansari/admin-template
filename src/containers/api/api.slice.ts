@@ -1,6 +1,6 @@
 import { createAppSlice } from '../../store/create-slice';
-import { loginAPI, loginAPIKey } from '../login/api/login.api';
-import { refreshTokenAPI, refreshTokenAPIKey } from '../login/api/refresh-token.api';
+import { loginAPI, loginAPIKey } from '../auth/login/api/login.api';
+import { refreshTokenAPI, refreshTokenAPIKey } from '../auth/login/api/refresh-token.api';
 import { productsAPI, productsAPIKey } from '../products/api/products.api';
 
 interface APISlice {

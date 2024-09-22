@@ -1,4 +1,4 @@
-import { Permissions } from '../constants/permissions.constant';
+import { Permissions } from '../containers/permissions/permissions.constant';
 
 export const hasPermission = function (
   permissionRequired: string[],

@@ -13,7 +13,7 @@ import type {
   RowAction,
   TableConfig,
   TableContextValue,
-} from '../../applications/table/table.model';
+} from '../../packages/table/table.model';
 import type { APIPagination } from '../api/api.model';
 import TablePaginationComponent from './components/pagination.component';
 import TableToolbarComponent from './components/toolbar.component';

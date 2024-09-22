@@ -4,12 +4,12 @@ import {
   DesktopSidebarDrawer,
   MobileSidebarDrawer,
 } from '../../components/navbar/sidebar-drawer.component';
-import { DrawerWidth } from '../../constants/app.constants';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
-import { appSidebarVisiblity } from '../app/app.slice';
-import Header from '../navbar/header.container';
-import SidebarContainer from '../navbar/sidebar.container';
-import UserMenu from '../navbar/user-menu.container';
+import { DrawerWidth } from './app.constants';
+import { appSidebarVisiblity } from './app.slice';
+import Header from './navbar/header.container';
+import SidebarContainer from './navbar/sidebar.container';
+import UserMenu from './navbar/user-menu.container';
 
 interface Props {
   children: ReactNode;

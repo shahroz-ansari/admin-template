@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Permissions } from '../../constants/permissions.constant';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import { decodeJWT } from '../../utils/jwt.util';
 import { createPermissionsFromScopes } from '../../utils/permission.util';
@@ -8,6 +7,7 @@ import {
   sessionPermissions,
   sessionStore,
 } from '../session/session.slice';
+import { Permissions } from './permissions.constant';
 
 interface Props {
   children: React.ReactNode;

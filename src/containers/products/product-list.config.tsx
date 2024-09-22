@@ -1,4 +1,4 @@
-import type { TableConfig } from '../../applications/table/table.model';
+import type { TableConfig } from '../../packages/table/table.model';
 import ActionColumnComponent from '../table/components/action-column.component';
 const ProductListConfig: TableConfig = {
   name: {

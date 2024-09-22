@@ -1,6 +1,6 @@
 import type { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { refreshTokenAPI } from '../containers/login/api/refresh-token.api';
+import { refreshTokenAPI } from '../containers/auth/login/api/refresh-token.api';
 import { sessionToken } from '../containers/session/session.slice';
 import type { LoginAPIResponseType } from '../services/http/login.service';
 import type { AppStore } from '../store/store';

@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { loginPath } from '../../routes/routes.constant';
 import { useAppSelector } from '../../store/store.hook';
-import AppLayoutContainer from '../layout/app-layout.container';
+import { loginPath } from '../router/routes.constant';
+import AppLayoutContainer from './app-layout.container';
 
 const AdminAppContainer: React.FC = () => {
   const token = useAppSelector((state) => state.session.token);

@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import type { RowAction } from '../../applications/table/table.model';
+import type { RowAction } from '../../packages/table/table.model';
 import type { ProductsAPIRequestType } from '../../services/http/products.service';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import TableContainer from '../table/table.container';

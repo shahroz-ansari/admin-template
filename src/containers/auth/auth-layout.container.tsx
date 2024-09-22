@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/material';
 import { Navigate, Outlet } from 'react-router-dom';
-import { dashboardPath } from '../../routes/routes.constant';
 import { useAppSelector } from '../../store/store.hook';
+import { dashboardPath } from './../router/routes.constant';
 
 const AuthLayoutContainer: React.FC = () => {
   const token = useAppSelector((state) => state.session.token);
