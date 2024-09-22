@@ -7,6 +7,7 @@ import type {
 } from '@mui/x-data-grid';
 import { DataGrid } from '@mui/x-data-grid';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import type { APIPagination } from '../../features/api/api.model';
 import type {
   ApiAction,
   FilterData,
@@ -14,7 +15,6 @@ import type {
   TableConfig,
   TableContextValue,
 } from '../../packages/table/table.model';
-import type { APIPagination } from '../api/api.model';
 import TablePaginationComponent from './components/pagination.component';
 import TableToolbarComponent from './components/toolbar.component';
 import { TableContext } from './table.context';

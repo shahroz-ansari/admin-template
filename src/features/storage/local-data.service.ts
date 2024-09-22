@@ -5,7 +5,6 @@ import { AppAuthTokenKey, AppThemeOptionsKey } from './storage-keys.constant';
 class LocalDataService {
   getAppThemeOptions(): CustomThemeOptions {
     const d = lStorage.getItem(AppThemeOptionsKey);
-    console.log(d);
     return JSON.parse(d || '{}');
   }
   setAppThemeOptions(theme: CustomThemeOptions) {

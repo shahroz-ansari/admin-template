@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react';
+import TableContainer from '../../packages/table/table.container';
 import type { RowAction } from '../../packages/table/table.model';
 import type { ProductsAPIRequestType } from '../../services/http/products.service';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
-import TableContainer from '../table/table.container';
 import { productsAPI, productsAPIKey } from './api/products.api';
 import ProductListConfig from './list/product-list.config';
 
