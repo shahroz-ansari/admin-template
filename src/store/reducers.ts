@@ -1,10 +1,10 @@
 import { combineSlices } from '@reduxjs/toolkit';
-import { apiSlice } from '../containers/api/api.slice';
-import { appSlice } from '../containers/app/app.slice';
-import { productSlice } from '../containers/products/products.slice';
-import { sessionSlice } from '../containers/session/session.slice';
-import { toastSlice } from '../containers/toasts/toast.slice';
-import { userSlice } from '../containers/user/user.slice';
+import { apiSlice } from '../features/api/api.slice';
+import { appSlice } from '../features/app/app.slice';
+import { productSlice } from '../features/products/products.slice';
+import { sessionSlice } from '../features/session/session.slice';
+import { toastSlice } from '../features/toasts/toast.slice';
+import { userSlice } from '../features/user/user.slice';
 
 export const rootReducer = combineSlices(
   userSlice,

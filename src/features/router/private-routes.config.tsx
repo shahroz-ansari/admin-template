@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Permissions } from '../../containers/permissions/permissions.constant';
+import { Permissions } from '../permissions/permissions.constant';
 import {
   dashboardPath,
   productsAddPath,

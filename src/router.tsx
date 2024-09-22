@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import CircularLoader from './components/loader/circular-loader.component';
-import AdminAppContainer from './containers/app/admin-app.container';
-import AuthLayoutContainer from './containers/auth/auth-layout.container';
-import PermissionGuard from './containers/permissions/permission-guard.container';
-import privateRoutes from './containers/router/private-routes.config';
-import publicRoutes from './containers/router/public-routes.config';
-import { admin, auth } from './containers/router/routes.constant';
+import AdminAppContainer from './features/app/admin-app.container';
+import AuthLayoutContainer from './features/auth/auth-layout.container';
+import PermissionGuard from './features/permissions/permission-guard.container';
+import privateRoutes from './features/router/private-routes.config';
+import publicRoutes from './features/router/public-routes.config';
+import { admin, auth } from './features/router/routes.constant';
 
 export const appRouter = createBrowserRouter([
   {

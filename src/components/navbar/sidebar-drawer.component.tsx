@@ -1,5 +1,5 @@
 import { Drawer } from '@mui/material';
-import { DrawerWidth } from '../../containers/app/app.constants';
+import { DrawerWidth } from '../../features/app/app.constants';
 
 interface MobileDrawerProps {
   sidebarVisiblity: boolean;

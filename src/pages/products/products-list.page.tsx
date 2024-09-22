@@ -1,4 +1,4 @@
-import ProductsListContainer from '../../containers/products/list/products-list.container';
+import ProductsListContainer from '../../features/products/list/products-list.container';
 
 const ProductPage: React.FC = () => {
   return (

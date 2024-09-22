@@ -1,10 +1,10 @@
 import { CssBaseline } from '@mui/material';
 import { Provider } from 'react-redux';
 import { setupAxiosInterceptors } from './configs/http-client.config';
-import RouterContainer from './containers/router/router.container';
-import MuiThemeProvider from './containers/theme/theme-provider.container';
-import ToastContainer from './containers/toasts/toasts.container';
 import ErrorBoundary from './error-boundry';
+import RouterContainer from './features/router/router.container';
+import MuiThemeProvider from './features/theme/theme-provider.container';
+import ToastContainer from './features/toasts/toasts.container';
 import { store } from './store/store';
 
 setupAxiosInterceptors(store);
