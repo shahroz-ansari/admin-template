@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store.hook';
 import { decodeJWT } from '../../utils/jwt.util';
-import { createPermissionsFromScopes } from '../../utils/permission.util';
 import {
   sessionMerchant,
   sessionPermissions,
   sessionStore,
 } from '../session/session.slice';
+import { createPermissionsFromScopes } from './permission.util';
 import { Permissions } from './permissions.constant';
 
 interface Props {

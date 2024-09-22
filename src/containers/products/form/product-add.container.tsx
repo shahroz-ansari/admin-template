@@ -1,7 +1,7 @@
 import { Button, Stack } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
-import { FormComponent } from '../../packages/form/component.form';
-import FormInitializer from '../../packages/form/initializer.form';
+import { FormComponent } from '../../../packages/form/component.form';
+import FormInitializer from '../../../packages/form/initializer.form';
 import ProductAddFormConfig from './product-add.form.json';
 
 type AddProductPropertiesType = typeof ProductAddFormConfig.properties;

@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from 'react';
-import type { RowAction } from '../../packages/table/table.model';
-import type { ProductsAPIRequestType } from '../../services/http/products.service';
-import { useAppDispatch, useAppSelector } from '../../store/store.hook';
-import TableContainer from '../table/table.container';
-import { productsAPI, productsAPIKey } from './api/products.api';
-import ProductListConfig from './list/product-list.config';
+import type { RowAction } from '../../../packages/table/table.model';
+import type { ProductsAPIRequestType } from '../../../services/http/products.service';
+import { useAppDispatch, useAppSelector } from '../../../store/store.hook';
+import TableContainer from '../../table/table.container';
+import { productsAPI, productsAPIKey } from '../api/products.api';
+import ProductListConfig from './product-list.config';
 
 const ProductsListContainer: React.FC = () => {
   const dispatch = useAppDispatch();

@@ -1,9 +1,6 @@
-import {
-  AppAuthTokenKey,
-  AppThemeOptionsKey,
-} from '../../constants/storage-keys.constant';
-import type { CustomThemeOptions } from '../../containers/app/app.model';
 import { lStorage } from '../../utils/browser-storage.util';
+import type { CustomThemeOptions } from '../app/app.model';
+import { AppAuthTokenKey, AppThemeOptionsKey } from './storage-keys.constant';
 
 class LocalDataService {
   getAppThemeOptions(): CustomThemeOptions {

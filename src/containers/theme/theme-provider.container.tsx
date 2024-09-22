@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { useAppSelector } from '../../store/store.hook';
-import { muiThemes } from '../../themes';
+import { muiThemes } from './theme';
 
 interface Props {
   children: React.ReactNode;
