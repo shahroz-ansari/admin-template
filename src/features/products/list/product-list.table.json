@@ -1,0 +1,47 @@
+{
+  "content": {
+    "name": {
+      "column": {
+        "props": {
+          "field": "name",
+          "headerName": "Name",
+          "sortable": true,
+          "flex": 1
+        }
+      },
+      "filter": {
+        "options": [
+          { "label": "Samsung", "value": "s1" },
+          { "label": "Airtel", "value": "a1" }
+        ]
+      }
+    },
+    "image": {
+      "column": {
+        "props": {
+          "field": "image",
+          "headerName": "Image",
+          "flex": 1
+        }
+      }
+    },
+    "actions": {
+      "column": {
+        "props": {
+          "field": "actions",
+          "headerName": "Actions",
+          "flex": 1,
+          "headerAlign": "right",
+          "sortable": false
+        },
+        "component": {
+          "key": "column.actions",
+          "props": {
+            "edit": true,
+            "delete": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from 'react';
 import TableContainer from '../../../packages/table/table.container';
-import type { RowAction } from '../../../packages/table/table.model';
+import type { RowAction, TableConfig } from '../../../packages/table/table.model';
 import type { ProductsAPIRequestType } from '../../../services/http/products.service';
 import { useAppDispatch, useAppSelector } from '../../../store/store.hook';
 import { productsAPI, productsAPIKey } from '../api/products.api';
-import ProductListConfig from './product-list.config';
+import ProductListTableConfig from './product-list.table.json';
 
 const ProductsListContainer: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +24,8 @@ const ProductsListContainer: React.FC = () => {
 
   const preSelect = useMemo(() => [products?.data?.[0]?.id], [products]);
 
+  const contentConfig = ProductListTableConfig as TableConfig;
+
   return (
     <>
       <TableContainer
@@ -33,7 +35,7 @@ const ProductsListContainer: React.FC = () => {
         preSelect={preSelect}
         apiAction={apiAction}
         rowAction={rowAction}
-        config={ProductListConfig}
+        config={contentConfig}
       />
     </>
   );

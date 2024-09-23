@@ -29,13 +29,28 @@ export type TableColumnFilterConfig = {
   options?: TableFilterOptions;
 };
 
+export type TableColumnProps = {
+  props: Pick<
+    GridColDef<GridValidRowModel>,
+    'field' | 'headerName' | 'flex' | 'headerAlign' | 'sortable'
+  >;
+  component?: {
+    key: string;
+    props?: {
+      [key: string]: unknown;
+    };
+  };
+};
+
 export type TableColumnConfig = {
-  column: GridColDef<GridValidRowModel>;
+  column: TableColumnProps;
   filter?: TableColumnFilterConfig;
 };
 
 export type TableConfig = {
-  [key: string]: TableColumnConfig;
+  content: {
+    [key: string]: TableColumnConfig;
+  };
 };
 
 export interface TableFilterMap {

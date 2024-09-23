@@ -5,7 +5,12 @@ import { useContext } from 'react';
 import { RowActionType } from '../../../packages/table/table.model';
 import { TableContext } from '../table.context';
 
-const ActionColumnComponent: React.FC<GridRenderCellParams> = ({ id }) => {
+interface Props {
+  cell: GridRenderCellParams;
+  custom: unknown;
+}
+
+const ActionColumnComponent: React.FC<Props> = ({ cell: { id }, custom }) => {
   const { rowAction } = useContext(TableContext);
   const onEdit = () => {
     rowAction?.(RowActionType.Edit, id);
@@ -13,14 +18,24 @@ const ActionColumnComponent: React.FC<GridRenderCellParams> = ({ id }) => {
   const onDelete = () => {
     rowAction?.(RowActionType.Delete, id);
   };
+
+  const customProps = custom as {
+    edit: boolean;
+    delete: boolean;
+  };
+
   return (
     <Stack direction="row" justifyContent="end" alignContent="flex-end">
-      <IconButton onClick={onEdit}>
-        <Edit color="primary" />
-      </IconButton>
-      <IconButton onClick={onDelete}>
-        <Delete color="error" />
-      </IconButton>
+      {customProps.edit && (
+        <IconButton onClick={onEdit}>
+          <Edit color="primary" />
+        </IconButton>
+      )}
+      {customProps.delete && (
+        <IconButton onClick={onDelete}>
+          <Delete color="error" />
+        </IconButton>
+      )}
     </Stack>
   );
 };

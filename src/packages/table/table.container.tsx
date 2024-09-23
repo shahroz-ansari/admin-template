@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import type {
+  GridRenderCellParams,
   GridRowId,
   GridRowSelectionModel,
   GridRowsProp,
@@ -15,6 +16,7 @@ import type {
   TableConfig,
   TableContextValue,
 } from '../../packages/table/table.model';
+import tableComponentMap from './component-map.table';
 import TablePaginationComponent from './components/pagination.component';
 import TableToolbarComponent from './components/toolbar.component';
 import { TableContext } from './table.context';
@@ -84,17 +86,31 @@ const TableContainer = <T extends GridRowsProp>({
   }, [apiAction, keyword, paginationModel, sortModel, filterData]);
 
   const filters = useMemo(() => {
-    return Object.values(config)
+    return Object.values(config.content)
       .filter((column) => column.filter)
       .map((column) => ({
-        name: column.column.field,
-        label: column.column.headerName || '',
+        name: column.column.props.field,
+        label: column.column.props.headerName || '',
         options: column.filter?.options || [],
       }));
   }, [config]);
 
   const columns = useMemo(() => {
-    return Object.values(config).map((column) => column.column);
+    return Object.values(config.content).map((column) => ({
+      ...column.column.props,
+      ...(column.column.component
+        ? {
+            renderCell: (params: GridRenderCellParams) => {
+              const Component =
+                tableComponentMap[
+                  column.column.component!.key as keyof typeof tableComponentMap
+                ];
+
+              return <Component cell={params} custom={column.column.component?.props} />;
+            },
+          }
+        : null),
+    }));
   }, [config]);
 
   const contextValue: TableContextValue = useMemo(() => {
